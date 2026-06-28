@@ -5,6 +5,7 @@ import { useLayoutStore } from '../stores/layoutStore';
 import { conversationDemo } from '../samples/conversationDemo';
 import { notesDemo } from '../samples/notesDemo';
 import { adaptFile, adaptMarkdownFiles } from '../adapters';
+import { TextToGraphDialog } from './TextToGraphDialog';
 
 export function TopBar() {
   const fileInputRef = useRef<HTMLInputElement>(null);
@@ -19,6 +20,7 @@ export function TopBar() {
   const triggerReset = useLayoutStore(s => s.triggerReset);
 
   const [toast, setToast] = useState<string | null>(null);
+  const [llmDialogOpen, setLlmDialogOpen] = useState(false);
   const showToast = (msg: string) => {
     setToast(msg);
     setTimeout(() => setToast(null), 2500);
@@ -111,6 +113,14 @@ export function TopBar() {
         样例 2
       </button>
 
+      <button
+        className="btn btn--primary"
+        onClick={() => setLlmDialogOpen(true)}
+        title="把一段文字通过 LLM 转换成关系图谱"
+      >
+        <SparklesIcon /> AI 生成
+      </button>
+
       <div className="divider" />
 
       <button className="btn btn--icon" onClick={triggerRerun} title="重新跑布局" aria-label="rerun">
@@ -134,7 +144,17 @@ export function TopBar() {
       </button>
 
       {toast && <div className="toast">{toast}</div>}
+
+      <TextToGraphDialog open={llmDialogOpen} onClose={() => setLlmDialogOpen(false)} />
     </div>
+  );
+}
+
+function SparklesIcon() {
+  return (
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M12 3l1.9 5.8L20 10l-5.8 1.9L12 18l-1.9-5.8L4 10l5.8-1.9L12 3z" />
+    </svg>
   );
 }
 
