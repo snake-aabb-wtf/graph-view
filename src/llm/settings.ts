@@ -10,14 +10,19 @@ export interface LLMSettings {
   model: string;
 }
 
-const DEFAULT_BASE_URL =
-  ((import.meta as ImportMeta & { env: Record<string, string> }).env.VITE_LLM_BASE_URL as
-    | string
-    | undefined) || '/llm';
-const DEFAULT_MODEL =
-  ((import.meta as ImportMeta & { env: Record<string, string> }).env.VITE_LLM_MODEL as
-    | string
-    | undefined) || 'gpt-4o-mini';
+const ENV: Record<string, string | undefined> =
+  ((): Record<string, string | undefined> => {
+    try {
+      const m = (import.meta as ImportMeta & { env?: Record<string, string> }).env;
+      if (m) return m as Record<string, string | undefined>;
+    } catch {
+      // 在 tsx / Node 直接跑时 import.meta.env 不可用,fallback
+    }
+    return (typeof process !== 'undefined' ? process.env : {}) as Record<string, string | undefined>;
+  })();
+
+const DEFAULT_BASE_URL = ENV.VITE_LLM_BASE_URL || '/llm';
+const DEFAULT_MODEL = ENV.VITE_LLM_MODEL || 'gpt-4o-mini';
 // env 不接受明文 key(避免误提交仓库),key 永远走 UI 输入
 
 export function defaultSettings(): LLMSettings {

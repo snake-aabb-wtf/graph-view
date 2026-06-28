@@ -15,6 +15,9 @@ dist-ssr
 # TypeScript build cache
 *.tsbuildinfo
 
+# Local test scripts (may contain API keys)
+scripts/test-*
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
