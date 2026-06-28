@@ -1,0 +1,31 @@
+{
+  "nodes": [
+    { "id": "user-query", "type": "input", "label": "User Query", "group": "数据流" },
+    { "id": "preprocessor", "type": "module", "label": "Preprocessor", "group": "处理" },
+    { "id": "embedder", "type": "module", "label": "Text Embedder", "group": "AI 模型" },
+    { "id": "retriever", "type": "module", "label": "Vector Retriever", "group": "处理" },
+    { "id": "llm", "type": "module", "label": "LLM", "group": "AI 模型" },
+    { "id": "postprocessor", "type": "module", "label": "Postprocessor", "group": "处理" },
+    { "id": "response", "type": "output", "label": "Response", "group": "数据流" },
+    { "id": "vector-db", "type": "storage", "label": "Vector DB", "group": "存储" },
+    { "id": "knowledge-base", "type": "storage", "label": "Knowledge Base", "group": "存储" },
+    { "id": "cache", "type": "storage", "label": "Embedding Cache", "group": "存储" },
+    { "id": "logger", "type": "utility", "label": "Logger", "group": "工具" },
+    { "id": "metrics", "type": "utility", "label": "Metrics", "group": "工具" }
+  ],
+  "edges": [
+    { "source": "user-query", "target": "preprocessor", "type": "feeds" },
+    { "source": "preprocessor", "target": "embedder", "type": "feeds" },
+    { "source": "embedder", "target": "cache", "type": "reads" },
+    { "source": "embedder", "target": "cache", "type": "writes" },
+    { "source": "embedder", "target": "retriever", "type": "feeds" },
+    { "source": "retriever", "target": "vector-db", "type": "queries" },
+    { "source": "retriever", "target": "knowledge-base", "type": "queries" },
+    { "source": "retriever", "target": "llm", "type": "feeds" },
+    { "source": "llm", "target": "postprocessor", "type": "feeds" },
+    { "source": "postprocessor", "target": "response", "type": "feeds" },
+    { "source": "preprocessor", "target": "logger", "type": "logs" },
+    { "source": "retriever", "target": "metrics", "type": "logs" },
+    { "source": "llm", "target": "metrics", "type": "logs" }
+  ]
+}

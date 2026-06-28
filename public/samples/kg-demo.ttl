@@ -1,0 +1,13 @@
+# 样例:N-Triples (Turtle 子集) 知识图谱
+# 5 个实体,6 条关系
+<http://example.org/Alice> <http://xmlns.com/foaf/0.1/name> "Alice" .
+<http://example.org/Alice> <http://xmlns.com/foaf/0.1/knows> <http://example.org/Bob> .
+<http://example.org/Alice> <http://xmlns.com/foaf/0.1/knows> <http://example.org/Carol> .
+<http://example.org/Bob> <http://xmlns.com/foaf/0.1/name> "Bob" .
+<http://example.org/Bob> <http://xmlns.com/foaf/0.1/knows> <http://example.org/Dave> .
+<http://example.org/Carol> <http://xmlns.com/foaf/0.1/name> "Carol" .
+<http://example.org/Carol> <http://xmlns.com/foaf/0.1/knows> <http://example.org/Dave> .
+<http://example.org/Dave> <http://xmlns.com/foaf/0.1/name> "Dave" .
+<http://example.org/Dave> <http://example.org/worksFor> <http://example.org/Acme> .
+<http://example.org/Acme> <http://www.w3.org/2000/01/rdf-schema#label> "Acme Inc." .
+<http://example.org/Alice> <http://example.org/worksFor> <http://example.org/Acme> .

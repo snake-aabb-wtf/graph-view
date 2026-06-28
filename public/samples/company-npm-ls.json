@@ -1,0 +1,32 @@
+{
+  "name": "demo-app",
+  "version": "1.0.0",
+  "dependencies": {
+    "react": {
+      "version": "18.3.1",
+      "dependencies": {
+        "loose-envify": { "version": "1.4.0" }
+      }
+    },
+    "react-dom": {
+      "version": "18.3.1",
+      "dependencies": {
+        "react": { "version": "18.3.1" },
+        "loose-envify": { "version": "1.4.0" },
+        "scheduler": { "version": "0.23.2" }
+      }
+    },
+    "zustand": {
+      "version": "4.5.5",
+      "dependencies": {
+        "use-sync-external-store": { "version": "1.2.0" }
+      }
+    },
+    "cytoscape": {
+      "version": "3.30.4",
+      "dependencies": {
+        "heap": { "version": "0.2.7" }
+      }
+    }
+  }
+}
