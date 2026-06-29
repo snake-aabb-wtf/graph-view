@@ -2,7 +2,7 @@
 
 > 一个类似 [Obsidian Graph View](https://obsidian.md/help/plugins/graph) 的 Web 应用,用于把 AI 的上下文(对话、笔记、JSON/CSV/三元组、代码依赖)**一股脑塞进关系图谱**里进行可视化、过滤、探索。
 
-![Architecture](https://img.shields.io/badge/React-18-blue) ![Vite](https://img.shields.io/badge/Vite-5-purple) ![TS](https://img.shields.io/badge/TypeScript-5-blue) ![Cytoscape](https://img.shields.io/badge/Cytoscape.js-3.30-green) ![License](https://img.shields.io/badge/license-MIT-lightgrey)
+![React](https://img.shields.io/badge/React-18-blue) ![Vite](https://img.shields.io/badge/Vite-5-purple) ![TypeScript](https://img.shields.io/badge/TypeScript-5-blue) ![Cytoscape](https://img.shields.io/badge/Cytoscape.js-3.30-green) ![License](https://img.shields.io/badge/license-GPL--3.0-blue)
 
 ## ✨ 核心特性
 
@@ -195,4 +195,12 @@ Web 版跑通后,可平滑迁移到:
 
 ## 📜 License
 
-MIT
+本项目使用 **GNU General Public License v3.0**。详见根目录的 [LICENSE](./LICENSE) 文件。
+
+这意味着:
+- ✅ 你可以自由使用、修改、分发本项目
+- ✅ 修改后的衍生作品也必须以 GPL-3.0 开源
+- ⚠️ 不得闭源商用,不得添加额外限制
+- 📋 必须保留版权声明和许可证原文
+
+基于 GPL-3.0 的精神,欢迎 fork / PR / 二次开发,但请保持开源。
